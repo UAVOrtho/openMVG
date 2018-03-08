@@ -330,6 +330,15 @@ TARGET_LINK_LIBRARIES( openMVG_main_openMVG2NVM
   openMVG_sfm
   stlplus )
 
+# - Export SfM openMVG scene to Photogrammetry file
+ADD_EXECUTABLE(openMVG_main_openMVG2Photogrammetry main_openMVG2Photogrammetry.cpp)
+TARGET_LINK_LIBRARIES( openMVG_main_openMVG2Photogrammetry
+  openMVG_system
+  openMVG_image
+  openMVG_features
+  openMVG_sfm
+  stlplus )
+
 # installation rules
 SET_PROPERTY(TARGET openMVG_main_openMVG2PMVS PROPERTY FOLDER OpenMVG/software)
 INSTALL(TARGETS openMVG_main_openMVG2PMVS DESTINATION bin/)

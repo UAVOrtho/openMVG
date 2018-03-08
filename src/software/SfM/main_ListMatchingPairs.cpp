@@ -210,6 +210,7 @@ int main(int argc, char **argv)
 
 
   // b. Create the pose graph pair relationship
+BEGIN_MODE:
   Pair_Set pose_pairs;
 
   switch (i_mode)
@@ -241,6 +242,11 @@ int main(int argc, char **argv)
         std::cerr << "You are trying to use the gps_mode but your data does"
           << " not have any pose priors."
           << std::endl;
+        std::cerr << "Use Exhausitve pair instead." <<std::endl;
+        
+        i_mode = PAIR_MODE_EXHAUSTIVE;
+
+        goto BEGIN_MODE;
       }
       // Compute i_neighbor_count neighbor(s) for each pose
       size_t contiguous_pose_id = 0;

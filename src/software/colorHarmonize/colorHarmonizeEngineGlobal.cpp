@@ -136,6 +136,9 @@ bool ColorHarmonizationEngineGlobal::Process()
   //-------------------
   //-- Color Harmonization
   //-------------------
+  //yqs
+  _imgRef = _vec_fileNames.size()*0.5;
+  _selectionMethod = 0;
 
   //Choose image reference
   if (_imgRef == -1 )
@@ -432,8 +435,9 @@ bool ColorHarmonizationEngineGlobal::Process()
       }
     }
 
-    const std::string out_folder = stlplus::create_filespec( _sOutDirectory,
-      vec_selectionMethod[ _selectionMethod ] + "_" + vec_harmonizeMethod[ harmonizeMethod ]);
+    //const std::string out_folder = stlplus::create_filespec( _sOutDirectory,
+    //  vec_selectionMethod[ _selectionMethod ] + "_" + vec_harmonizeMethod[ harmonizeMethod ]);
+    const std::string out_folder = _sOutDirectory;
     if ( !stlplus::folder_exists( out_folder ) )
       stlplus::folder_create( out_folder );
     const std::string out_filename = stlplus::create_filespec( out_folder, stlplus::filename_part(_vec_fileNames[ imaNum ]) );
@@ -484,7 +488,6 @@ bool ColorHarmonizationEngineGlobal::ReadInputData()
   }
 
   // b. Read matches
-
   if ( !matching::Load(_map_Matches, _sMatchesFile) )
   {
     std::cerr<< "Unable to read the geometric matrix matches" << std::endl;
