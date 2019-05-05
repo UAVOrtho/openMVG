@@ -68,14 +68,14 @@ void ControlPoint2DNode::paint
     gradient.setColorAt(0, Qt::yellow);
     gradient.setColorAt(1, Qt::darkYellow);
   }
-  painter->setBrush(gradient);
-  painter->setPen(QPen(Qt::black, 0));
-  painter->drawEllipse(QPointF(0,0),10,10);
+  // painter->setBrush(gradient);
+  // painter->setPen(QPen(Qt::black, 0));
+  // painter->drawEllipse(QPointF(0,0),10,10);
 
   // Or just draw a cross ?
-  //painter->setPen(QPen(Qt::black, 1));
-  //painter->drawLine(10, 10, -10, -10);
-  //painter->drawLine(10, -10, -10, 10);
+  painter->setPen(QPen(Qt::black, 1));
+  painter->drawLine(10, 10, -10, -10);
+  painter->drawLine(10, -10, -10, 10);
 
   // Paint the index of the control_point
   // adapt the font size to fit the GCP id to the bounding box of the ellipse
